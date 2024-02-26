@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package switcheo.items;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+import "switcheo/items/params.proto";
+import "switcheo/items/item.proto";
+
+option go_package = "switcheo/x/items/types";
+
+// GenesisState defines the items module's genesis state.
+message GenesisState {
+  
+  // params defines all the parameters of the module.
+           Params params    = 1 [(gogoproto.nullable) = false, (amino.dont_omitempty) = true];
+  repeated Item   itemList  = 2 [(gogoproto.nullable) = false] ;
+           uint64 itemCount = 3;
+}
+

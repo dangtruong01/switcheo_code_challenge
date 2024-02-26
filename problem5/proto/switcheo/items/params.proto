@@ -1,0 +1,15 @@
+syntax = "proto3";
+package switcheo.items;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+
+option go_package = "switcheo/x/items/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (amino.name) = "switcheo/x/items/Params";
+  option (gogoproto.equal) = true;
+
+  
+}

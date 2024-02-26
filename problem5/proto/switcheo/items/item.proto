@@ -1,0 +1,11 @@
+syntax = "proto3";
+package switcheo.items;
+
+option go_package = "switcheo/x/items/types";
+
+message Item {
+  uint64 id = 1;
+  string name = 2; 
+  string owner = 3; 
+  string creator = 4;
+}
