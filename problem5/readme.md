@@ -49,3 +49,20 @@ curl https://get.ignite.com/username/switcheo@latest! | sudo bash
 - [Ignite CLI docs](https://docs.ignite.com)
 - [Cosmos SDK docs](https://docs.cosmos.network)
 - [Developer Chat](https://discord.gg/ignite)
+
+# Consensus-Breaking Changes Documentation
+
+## Change Description
+This update introduces a new mandatory `memo` field to the `MsgSend` transaction message. This field is intended for users to attach arbitrary data to their transactions.
+
+## What Does Breaking Consensus Mean?
+A consensus-breaking change is a change that is not compatible with the previous version of the blockchain protocol. Existing nodes will reject transactions that do not include the new `memo` field because it does not conform to their expected transaction structure.
+
+## Why Would This Change Break Consensus?
+This change would break consensus because transactions are the fundamental elements of the blockchain that all nodes must agree upon. The addition of a new mandatory `memo` field changes the transaction validation rules. Nodes running older versions of the software will consider transactions without a `memo` as invalid, while nodes that have upgraded will reject transactions that lack this field.
+
+## Steps for Network Upgrade
+1. Notify all node operators about the upcoming mandatory `memo` field.
+2. Provide a software upgrade that includes the new transaction structure.
+3. Define a block height when the new transaction structure will be enforced.
+4. Coordinate with the node operators to ensure they have upgraded before the specified block height.

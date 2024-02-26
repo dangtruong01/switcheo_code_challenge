@@ -11,6 +11,12 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )
 
+func (k msgServer) Send(goCtx context.Context, msg *types.MsgSend) (*types.MsgSendResponse, error) {
+	if msg.Memo == "" {
+	  return nil, errors.New("memo field cannot be empty")
+	}
+}
+
 func (k msgServer) CreateItem(goCtx context.Context, msg *types.MsgCreateItem) (*types.MsgCreateItemResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
